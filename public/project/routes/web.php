@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Route;
 
   Route::get('/under-maintenance', 'Frontend\FrontendController@maintenance')->name('front-maintenance');
   Route::group(['middleware'=>'maintenance'],function(){
+
+      Route::get('/test', 'Frontend\TestController@test');
+
     Route::get('/', 'Frontend\FrontendController@index')->name('front.index');
-    
+
     Route::get('blogs', 'Frontend\FrontendController@blog')->name('front.blog');
     Route::get('blog/{slug}', 'Frontend\FrontendController@blogdetails')->name('blog.details');
     Route::get('/blog-search','Frontend\FrontendController@blogsearch')->name('front.blogsearch');
